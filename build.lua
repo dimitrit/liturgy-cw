@@ -1,10 +1,10 @@
--- Build configuration for scripture
+-- Build configuration for liturgy-cw
 
 module = "liturgy-cw"
 checkformat = "latex"
 stdengine    = "xelatex"
 checkengines = {"xelatex"}
-checkconfigs = {"build", "config-unicode"}
+checkconfigs = {"build"}
 typesetexe = "lualatex"
 
 -- Detail how to set the version automatically
