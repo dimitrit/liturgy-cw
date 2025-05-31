@@ -105,10 +105,9 @@
 % Since the \Lpack{liturgy-cw} package uses \Lpack{fontspec} it requires
 % \hologo{LuaTeX} or other appropriate \TeX\ engine to function.
 %
-% For best results you should have both Gill Sans MT and Segoe UI Symbol
-% fonts installed on your system. The latter is required for the symbol
-% functions, |\Rx|, |\Pause| and |\Cross|.
-%
+% For best results you should have both \textit{Gill Sans MT} and
+% \textit{Noto Sans Liturgy} fonts installed on your system. The latter
+% is required for the symbol functions, |\Rx|, |\Pause| and |\Cross|.
 %
 % \section{Bug reports and feature requests}
 % The source code, together with instructions for building and installing
@@ -135,7 +134,7 @@
 %    Rejoicing in God’s new creation,\\
 %    as our Saviour taught us, so we pray}
 %
-%  \LPC
+%  \lpc
 % \end{required}
 % \end{commandbox}
 %
@@ -150,7 +149,7 @@
 %   \minister{Rejoicing in God’s new creation,\\
 %     as our Saviour taught us, so we pray}
 %
-%   \LPC
+%   \lpc
 % \end{required}
 % \end{resultbox}
 %
@@ -165,8 +164,10 @@
 %
 % \subsubsection{Functions}
 % \DescribeMacro{rubric}
-% The |\rubric| function adds a direction for the conduct of the service in
-% red, italicized print. For example:
+% The |\rubric|\marg{directive} function adds a direction for the conduct of
+% the service in red, italicized print. For example:
+%
+% \vspace*{1ex}
 %
 % \noindent\begin{commandbox}
 % \rubric{The appointed psalmody is said.}
@@ -180,9 +181,11 @@
 % \end{resultbox}
 %
 % \DescribeMacro{minister}
-% Words spoken by clergy are included using the |\minister[<option>]| function.
-% Using the optional argument it is possible to specify a ministry role, for
-% example:
+% Words spoken by clergy are included using the |\minister|\oarg{role}\marg{words}
+% function. Using the optional \oarg{role }argument it is possible to specify a
+% ministry role, for example:
+%
+% \vspace*{1ex}
 %
 % \noindent\begin{commandbox}
 %  \minister[President]{%
@@ -204,10 +207,12 @@
 % \end{resultbox}
 %
 % \DescribeMacro{all}
-% |\all| is used to highlight the words that are to be spoken by the whole
-% congregation. Words are printed in bold, preceded by the italicized word
-% 'All' in red, printed in the margin. The 'All' directive is omitted when
-% using the starred version, |\all*|, as shown in the example:
+% |\all|\marg{words} is used to highlight the words that are to be spoken by
+% the whole congregation. Words are printed in bold, preceded by the italicized
+% word `All' in red, printed in the margin. The `All' directive is omitted when
+% using the starred version, |\all*|\marg{words}, as shown in the example:
+%
+% \vspace*{1ex}
 %
 % \noindent\begin{commandbox}
 %  \minister{Lord, hear us.}
@@ -226,6 +231,9 @@
 %
 % \DescribeMacro{Cross} The \Cross\ symbol can be included in the liturgy
 % using |\Cross|:
+%
+% \vspace*{1ex}
+%
 % \noindent\begin{commandbox}
 % \Cross\ In the name of the Father, and of the Son, and of the Holy Spirit.
 % \end{commandbox}
@@ -241,6 +249,8 @@
 % \DescribeMacro{Rx} In the Common Worship Psalter pauses and refrains are
 % indicated using the \Pause\ and \Rx\ symbols respectively. Support for
 % these symbols is provided through the |\Pause| and |\Rx| functions:
+%
+% \vspace*{1ex}
 %
 % \noindent\begin{commandbox}
 % \textit{\textcolor{red}{Refrain:} The Lord shall keep you from all evil.}
@@ -305,9 +315,46 @@
 % \end{verse}
 % \end{resultbox}
 %
+% \subsubsection{Shortcuts}
+% A number of shortcuts are provided for frequently used liturical elements.
+% Two versions are provided for each shortcut. The standard version of each
+% shortcut typesets the liturgical element as spoken the whole congregation,
+% i.e. in bold print, preceded by `All'. The starred version typesets the
+% plain text.
+%
+% \DescribeMacro{amen} Declaration of affirmation:
+% {\setmainfont[Ligatures=TeX]{Gill Sans MT}\amen*}
+%
+% \DescribeMacro{glorybe} Lesser doxology:
+%
+% \vspace*{1ex}
+%
+% \noindent\begin{resultbox}
+%	\setmainfont[Ligatures=TeX]{Gill Sans MT}
+%   \glorybe*
+% \end{resultbox}
+%
+% \DescribeMacro{lpc} The contemporary version of the Lord's prayer:
+%
+% \vspace*{1ex}
+%
+% \noindent\begin{resultbox}
+% 	\setmainfont[Ligatures=TeX]{Gill Sans MT}
+%   \lpc*
+% \end{resultbox}
+%
+% \DescribeMacro{lpt} The traditional version of the Lord's prayer:
+%
+% \vspace*{1ex}
+%
+% \noindent\begin{resultbox}
+%   \setmainfont[Ligatures=TeX]{Gill Sans MT}
+%   \lpt*
+% \end{resultbox}
+%
 % \subsection{Options}
-% Default formatting |〈options〉| can be set using
-% |\usepackage[〈options>]{literature-cw}|.
+% Default formatting \oarg{options}\ can be set using
+% |\usepackage|\oarg{options}|{literature-cw}|.
 %
 % \DescribeMacro{font} Sets the document font to Gill Sans MT. If this
 % typeface is not available on the system, the package will attempt to use
@@ -328,7 +375,7 @@
 %		\newblock \textit{An account of the making of Common worship: services and prayers for the Church of England} (Typography papers 5).
 %		\newblock Department of Typography \& Graphic Communication, University of Reading, 2022/2003.
 % \end{thebibliography}
-%}
+% }
 %    \begin{macrocode}
 \RequirePackage{array}
 \RequirePackage{bibleref}
@@ -364,15 +411,8 @@
 }
 \ProcessOptions\relax
 
-\NewDocumentCommand{\gillsans}{o}{{\fontspec{Gill Sans MT}#1}}
-\NewDocumentCommand{\lato}{o}{{\fontspec{Lato}#1}}
-
-\NewDocumentCommand{\@condvspace}{m}{%
-	\vspace{\if@nobreak 0pt\else #1\fi}
-}
-
-\NewDocumentCommand\all{sm}{%
-	\ignorespaces\IfBooleanTF#1%
+\NewDocumentCommand{\all}{sm}{%
+	\ignorespaces\noindent\IfBooleanTF#1%
 	{\hspace*{15mm}}%
 	{\parbox[t]{10mm}%
 		{\raggedleft\normalfont\textcolor{red}{\textit{All}}}%
@@ -388,7 +428,7 @@
 	\nopagebreak{\raggedleft\footnotesize #1\par}}
 
 \NewDocumentCommand{\minister}{O{}m}{%
-	\ignorespaces\begin{changemargin}{-15mm}{0mm}\item[]
+	\ignorespaces\noindent\begin{changemargin}{-15mm}{0mm}\item[]%
 	\parbox[t]{25mm}%
 		{\raggedleft\normalfont\textcolor{red}{\textit{#1}}}%
 		\hspace*{5mm}%
@@ -397,15 +437,28 @@
 \end{minipage}\end{changemargin}\strut}
 
 \NewDocumentCommand{\rubric}{m}{%
-	%\@condvspace{1ex}%
-	\hspace*{15mm}\begin{minipage}[t]{\dimexpr\linewidth-15mm}%
+	\noindent\hspace*{15mm}\begin{minipage}[t]{\dimexpr\linewidth-15mm}%
 		{\textcolor{red}{\itshape #1}}
 \end{minipage}\strut}
 
-\NewDocumentCommand\Alternative{}{or} % \rubric{\textit{(or)}}}
-\NewDocumentCommand\amen{}{Amen.}
-\NewDocumentCommand\AMEN{}{\all{\amen}}
-\NewDocumentCommand\lpt{}{Our Father, who art in heaven,\\
+\NewDocumentCommand{\Alternative}{}{\rubric{\textit{(or)}}}
+%% Shortcuts
+\NewDocumentCommand{\amen}{s}{%
+	\IfBooleanTF#1%
+	{Amen.}%
+	{\all{\amen*}}%
+}
+\NewDocumentCommand{\glorybe}{s}{%
+	\IfBooleanTF#1%
+	{Glory to the Father and to the Son\\
+	and to the Holy Spirit;\\
+	as it was in the beginning is now\\
+	and shall be for ever. \amen*}%
+	{\all{\glorybe*}}%
+}
+\NewDocumentCommand{\lpt}{s}{%
+	\IfBooleanTF#1%
+	{Our Father, who art in heaven,\\
 	hallowed be thy name;\\
 	thy kingdom come;\\
 	thy will be done;\\
@@ -418,8 +471,12 @@
 	For thine is the kingdom,\\
 	the power and the glory,\\
 	for ever and ever.\\
-	\amen}
-\NewDocumentCommand\lpc{}{Our Father in heaven,\\
+	\amen*}%
+	{\all{\lpt*}}%
+}
+\NewDocumentCommand{\lpc}{s}{%
+	\IfBooleanTF#1%
+	{Our Father in heaven,\\
 	hallowed be your name,\\
 	your kingdom come,\\
 	your will be done,\\
@@ -432,9 +489,9 @@
 	For the kingdom, the power,\\
 	and the glory are yours\\
 	now and for ever.\\
-	\amen}
-\NewDocumentCommand\LPT{}{\all{\lpt}}
-\NewDocumentCommand\LPC{}{\all{\lpc}}
+	\amen*}%
+	{\all{\lpc*}}%
+}
 %    \end{macrocode}
 %    \begin{macrocode}
 \newlength{\vbarhskip}
@@ -450,14 +507,14 @@
 {\endMakeFramed}
 %    \end{macrocode}
 %    \begin{macrocode}
-\IfFontExistsTF{Segoe UI Symbol}{%
-	\newfontface{\ssui}{Segoe UI Symbol}
-	\newcommand{\Rx}{{\ssui\itshape\textcolor{red}{\char"211E}}}
-	\newcommand{\Pause}{{\ssui\textcolor{red}{\char"2666}}}
-	\newcommand{\Cross}{{\ssui\textcolor{red}{\char"2720}}}
+\IfFontExistsTF{Noto Sans Liturgy}{%
+	\newfontface{\nsl}{Noto Sans Liturgy}
+	\NewDocumentCommand{\Rx}{}{{\nsl\itshape\textcolor{red}{\char"211E}}}
+	\NewDocumentCommand{\Pause}{}{{\nsl\textcolor{red}{\char"2666}}}
+	\NewDocumentCommand{\Cross}{}{{\nsl\textcolor{red}{\char"2720}}}
 }{
 	\PackageWarning{liturgy-cw}{%
-		The Segoe UI Symbol typeface is not available on this system which means liturgical symbols are not defined.}
+		The Noto Sans Liturgy typeface is not available on this system which means liturgical symbols are not defined.}
 }
 %    \end{macrocode}
 %    \begin{macrocode}
