@@ -158,9 +158,8 @@
 % \subsubsection{Environments}
 % \DescribeEnv{required}
 % Required parts of Common Worship liturgy are indicated by a vertical red bar.
-% The |required| environment can be used to mark such required sections. The
-% position of the vertical bar is defined by |\vbarhskip|, and can be changed
-% using |\setlength|, for example |\setlength\vbarhskip{-2em}|.
+% The |required| environment can be used to mark these parts. The position of
+% the vertical bar is defined by |\vbarhskip|.
 %
 % \subsubsection{Functions}
 % \DescribeMacro{rubric}
@@ -414,7 +413,7 @@
 \ProcessOptions\relax
 
 \NewDocumentCommand{\all}{sm}{%
-	\ignorespaces\noindent\IfBooleanTF#1%
+	\ignorespaces\noindent\strut\IfBooleanTF#1%
 	{\hspace*{15mm}}%
 	{\parbox[t]{10mm}%
 		{\raggedleft\normalfont\textcolor{red}{\textit{All}}}%
@@ -436,7 +435,7 @@
 		\hspace*{5mm}%
 	\begin{minipage}[t]{\dimexpr\linewidth-15mm}%
 		\normalfont #2
-\end{minipage}\end{changemargin}\ignorespacesafterend}
+\end{minipage}\strut\end{changemargin}\ignorespacesafterend}
 
 \NewDocumentCommand{\rubric}{m}{%
 	\noindent\hspace*{15mm}\begin{minipage}[t]{\dimexpr\linewidth-15mm}%
@@ -499,8 +498,7 @@
 \newlength{\vbarhskip}
 \setlength\vbarhskip{-51pt}
 \newenvironment{required}{%
-	\def\FrameCommand
-	{%
+	\def\FrameCommand{%
 		{\hskip\vbarhskip\color{red}\vrule width 3pt}%
 		\fboxsep=\FrameSep\hspace{\dimexpr\vbarhskip*-1-3pt}%
 	}%
