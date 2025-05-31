@@ -182,7 +182,7 @@
 %
 % \DescribeMacro{minister}
 % Words spoken by clergy are included using the |\minister|\oarg{role}\marg{words}
-% function. Using the optional \oarg{role }argument it is possible to specify a
+% function. Using the optional \oarg{role} argument it is possible to specify a
 % ministry role, for example:
 %
 % \vspace*{1ex}
@@ -224,6 +224,7 @@
 %
 % \noindent\begin{resultbox}
 % \setmainfont[Ligatures=TeX]{Gill Sans MT}
+%
 %  \minister{Lord, hear us.}
 %  \all*{Lord, graciously hear us.}
 % \end{resultbox}
@@ -435,14 +436,14 @@
 		\hspace*{5mm}%
 	\begin{minipage}[t]{\dimexpr\linewidth-15mm}%
 		\normalfont #2
-\end{minipage}\end{changemargin}\strut}
+\end{minipage}\end{changemargin}\ignorespacesafterend}
 
 \NewDocumentCommand{\rubric}{m}{%
 	\noindent\hspace*{15mm}\begin{minipage}[t]{\dimexpr\linewidth-15mm}%
 		{\textcolor{red}{\itshape #1}}
 \end{minipage}\strut}
 
-\NewDocumentCommand{\Alternative}{}{\rubric{\textit{(or)}}}
+\NewDocumentCommand{\alternative}{}{\rubric{\textit{(or)}}}
 %% Shortcuts
 \NewDocumentCommand{\amen}{s}{%
 	\IfBooleanTF#1%
