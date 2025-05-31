@@ -79,7 +79,7 @@
 % \section{Introduction}
 %
 % For the past quarter century Common Worship prayers and
-% services\cite{commonworship} have been the principal liturygy for most
+% services\cite{commonworship} has been the authorised liturygy for
 % worship in the Church of England. For both practical and (not least)
 % financial reasons many churches have produced their own service sheets
 % and booklets. These materials are often created using widely available
@@ -113,7 +113,7 @@
 % The source code, together with instructions for building and installing
 % the package, can be found on github;
 % \url{https://github.com/dimitrit/liturgy-cw}.
-% Please raise a github issue if you find any bugs or would like to request
+% Please raise a github issue if you find any bugs or would like to suggest
 % a new feature.
 %
 % \section{Package documentation}
@@ -153,7 +153,7 @@
 % \end{required}
 % \end{resultbox}
 %
-% \subsection{Macros for typesetting liturgies}
+% \subsection{Commands for typesetting liturgies}
 %
 % \subsubsection{Environments}
 % \DescribeEnv{required}
@@ -209,8 +209,9 @@
 % \DescribeMacro{all}
 % |\all|\marg{words} is used to highlight the words that are to be spoken by
 % the whole congregation. Words are printed in bold, preceded by the italicized
-% word `All' in red, printed in the margin. The `All' directive is omitted when
-% using the starred version, |\all*|\marg{words}, as shown in the example:
+% word \textit{All} in red, printed in the margin. The \textit{All} directive
+% is omitted when using the starred version, |\all*|\marg{words}, as shown in
+% the example:
 %
 % \vspace*{1ex}
 %
@@ -319,8 +320,8 @@
 % A number of shortcuts are provided for frequently used liturical elements.
 % Two versions are provided for each shortcut. The standard version of each
 % shortcut typesets the liturgical element as spoken the whole congregation,
-% i.e. in bold print, preceded by `All'. The starred version typesets the
-% plain text.
+% i.e. in bold print, preceded by \textit{All}. The starred version typesets
+% the plain text, as shown below.
 %
 % \DescribeMacro{amen} Declaration of affirmation:
 % {\setmainfont[Ligatures=TeX]{Gill Sans MT}\amen*}
@@ -353,7 +354,7 @@
 % \end{resultbox}
 %
 % \subsection{Options}
-% Default formatting \oarg{options}\ can be set using
+% Default formatting options can be applied using
 % |\usepackage|\oarg{options}|{literature-cw}|.
 %
 % \DescribeMacro{font} Sets the document font to Gill Sans MT. If this
