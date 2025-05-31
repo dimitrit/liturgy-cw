@@ -21,6 +21,13 @@ by changing to the `liturgy-cw` directory and runnning the `l3build` script:
 l3build install --full
 ```
 
+## Liturgical Font
+
+The `Noto Sans Liturgy' font included in this repository is provided for
+convenience. It merely contains 3 liturgical symbols taken from the Noto
+Sans family fonts and combined in a single TTF. It is licensed under the 
+terms of the [SIL Open Font License](https://github.com/notofonts/notofonts.github.io/blob/main/fonts/LICENSE).
+
 ## Licence
 
 ```
@@ -40,3 +47,9 @@ by Dimitri Theulings.
 This work consists of the files liturgy-cw.ins, liturgy-cw.dtx,
 README.md, and the derived files liturgy-cw.sty and liturgy-cw.pdf
 ```
+
+## Acknowledgements
+
+Common Worship: _Services and Prayers for the Church of England_, 
+material from which is included here, is copyright (c) The Archbishops' 
+Council, 2000, 2005, Church House Publishing.
