@@ -181,7 +181,7 @@
 %
 % \DescribeMacro{minister}
 % Words spoken by clergy are included using the |\minister|\oarg{role}\marg{words}
-% function. Using the optional \oarg{role} argument it is possible to specify a
+% function. Using the optional \textit{role} argument it is possible to specify a
 % ministry role, for example:
 %
 % \vspace*{1ex}
@@ -363,7 +363,9 @@
 % of these typefaces are available on the system.
 %
 % \DescribeMacro{titles} Formats chapter, section, and subsection titles in
-% line with the Common Worship design.
+% line with the Common Worship design. Note that as chapters, sections, etc.
+% are not numbered in Common Worship, only the starred versions of title
+% commands are supported, i.e |\chapter*|, |\section*|, etc.
 %
 % \StopEventually{%
 % \begin{thebibliography}{1}
@@ -399,13 +401,22 @@
 	}
 }
 \DeclareOption{titles}{
-	\titleformat{\chapter}
-	{\huge}{\thesection}{}{\color{red}\textparagraph\hspace{.5em}\itshape}
+	\newlength{\@cwpw}
+	\settowidth{\@cwpw}{\huge\P}
+	\titleformat{\chapter}[display]{\huge\color{red}}{\thechapter}{0ex}{\P\hspace*{\dimexpr-\@cwpw+15mm}\itshape\begin{minipage}[t]{\linewidth-15mm}}[\end{minipage}]
 	\titlespacing{\chapter}{0pt}{10pt}{10pt}
 
 	\titleformat{\section}
-	{\large}{\thesection}{}{\raggedleft\bfseries}
+	{\large\raggedleft\bfseries}{\thesection}{}{}
 	\titlespacing{\section}{0pt}{8pt}{0pt}
+
+	\titleformat{\subsection}
+	{\large\raggedleft\color{red}\itshape}{\thesubsection}{}{}
+	\titlespacing{\subsection}{0pt}{8pt}{0pt}
+
+	\titleformat{\subsubsection}
+	{\bfseries}{\thesubsubsection}{}{\hspace*{15mm}}{}
+	\titlespacing{\subsection}{0pt}{8pt}{0pt}
 
 	\newpagestyle{cwstyle}{\setfoot[\thepage][][]{}{}{\thepage}}
 	\pagestyle{cwstyle}
