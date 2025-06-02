@@ -364,8 +364,8 @@
 %
 % \DescribeMacro{titles} Formats chapter, section, and subsection titles in
 % line with the Common Worship design. Note that as chapters, sections, etc.
-% are not numbered in Common Worship, only the starred versions of title
-% commands are supported, i.e |\chapter*|, |\section*|, etc.
+% are not numbered in Common Worship, it is best to use the starred versions
+% of title commands, i.e |\chapter*|, |\section*|, etc.
 %
 % \StopEventually{%
 % \begin{thebibliography}{1}
@@ -403,20 +403,33 @@
 \DeclareOption{titles}{
 	\newlength{\@cwpw}
 	\settowidth{\@cwpw}{\huge\P}
-	\titleformat{\chapter}[display]{\huge\color{red}}{\thechapter}{0ex}{\P\hspace*{\dimexpr-\@cwpw+15mm}\itshape\begin{minipage}[t]{\linewidth-15mm}}[\end{minipage}]
+	\titleformat{\chapter}[display]
+	{\huge\color{red}}{\thechapter}{0pt}{\hspace*{\dimexpr-\@cwpw+10mm}\P\hspace*{5mm}\itshape\begin{minipage}[t]{\linewidth-15mm}}[\end{minipage}]
 	\titlespacing{\chapter}{0pt}{10pt}{10pt}
 
 	\titleformat{\section}
-	{\large\raggedleft\bfseries}{\thesection}{}{}
+	{\large\raggedleft\bfseries}{\thesection}{0pt}{}
 	\titlespacing{\section}{0pt}{8pt}{0pt}
 
 	\titleformat{\subsection}
-	{\large\raggedleft\color{red}\itshape}{\thesubsection}{}{}
+	{\large\raggedleft\color{red}\itshape}{\thesubsection}{0pt}{}
 	\titlespacing{\subsection}{0pt}{8pt}{0pt}
 
 	\titleformat{\subsubsection}
 	{\bfseries}{\thesubsubsection}{}{\hspace*{15mm}}{}
 	\titlespacing{\subsection}{0pt}{8pt}{0pt}
+
+	\let\@cwchapter\chapter
+	\renewcommand{\chapter}{\@ifstar{\@cwchapter*}{\@cwchapter*}}
+
+	\let\@cwsection\section
+	\renewcommand{\section}{\@ifstar{\@cwsection*}{\@cwsection*}}
+
+	\let\@cwsubsection\subsection
+	\renewcommand{\subsection}{\@ifstar{\@cwsubsection*}{\@cwsubsection*}}
+
+	\let\@cwsubsubsection\subsubsection
+	\renewcommand{\subsubsection}{\@ifstar{\@cwsubsubsection*}{\@cwsubsubsection*}}
 
 	\newpagestyle{cwstyle}{\setfoot[\thepage][][]{}{}{\thepage}}
 	\pagestyle{cwstyle}
