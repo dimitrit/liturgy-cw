@@ -518,8 +518,7 @@
 	\amen*}%
 	{\all{\lpc*}}%
 }
-%    \end{macrocode}
-%    \begin{macrocode}
+
 \newlength{\vbarhskip}
 \setlength\vbarhskip{-51pt}
 \newenvironment{required}{%
@@ -530,8 +529,7 @@
 	\MakeFramed{\advance\hsize-\width\FrameRestore}%
 }
 {\endMakeFramed}
-%    \end{macrocode}
-%    \begin{macrocode}
+
 \IfFontExistsTF{Noto Sans Liturgy}{%
 	\newfontface{\nsl}{Noto Sans Liturgy}
 	\NewDocumentCommand{\Rx}{}{{\nsl\itshape\textcolor{red}{\char"211E}}}
@@ -541,9 +539,8 @@
 	\PackageWarning{liturgy-cw}{%
 		The Noto Sans Liturgy typeface is not available on this system which means liturgical symbols are not defined.}
 }
-%    \end{macrocode}
-%    \begin{macrocode}
-\newbiblerefstyle{cw}{ % Common Worship
+
+\newbiblerefstyle{cw}{ % Common Worship style
 	\biblerefstyle{default}
 	\renewcommand{\BRchvsep}{.}
 	\renewcommand{\BRvrsep}{--}
