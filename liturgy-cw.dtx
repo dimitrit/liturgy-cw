@@ -450,8 +450,8 @@
 \def\changemargin#1#2{\list{}{\topsep0pt\parskip0pt\partopsep0pt\parsep0pt\itemsep0pt\rightmargin#2\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist
 
-\newcommand{\attrib}[1]{%
-	\nopagebreak{\raggedleft\footnotesize #1\par}}
+\newcommand{\attrib}[2][15mm]{%
+	\nopagebreak{\raggedleft\itshape #2\hspace*{#1}\par}}
 
 \NewDocumentCommand{\minister}{O{}m}{%
 	\ignorespaces\noindent\begin{changemargin}{-15mm}{0mm}\item[]%
