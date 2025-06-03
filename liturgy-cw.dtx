@@ -22,13 +22,12 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[2020-02-02]
 %<package>\ProvidesPackage{liturgy-cw}
 %<*package>
-[2025-05-02 v0.1 LaTeX package for typesetting Common Worship liturgies]
+[2025-06-03 v0.2 LaTeX package for typesetting Common Worship liturgies]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{liturgy-cw}[2025-05-02]
-\usepackage{hologo}
+\usepackage{liturgy-cw}[2025-06-03]
 \usepackage{xcolor}
 \usepackage{verse}
 \usepackage[most]{tcolorbox}
@@ -40,7 +39,7 @@
 	breakable,enhanced,verbatim ignore percent,
 	left=3pt, top=3pt, bottom=3pt,
 	before skip=11pt, after skip=11pt, arc=1mm,
-	borderline={0.5pt}{0pt}{black},colback=blue!10!white, colframe=black!10!white,
+	borderline={0.5pt}{0pt}{black},colback=blue!10!white,colframe=blue!50!black,
 	listing only,
 	listing options={style=tcblatex,inputencoding=utf8,basicstyle=\ttfamily\small}}
 \EnableCrossrefs
@@ -55,61 +54,59 @@
 % \fi
 %
 % \changes{v0.1}{2025-05-02}{Initial version}
-%
-% \newcommand{\Lpack}[1]{\textsf {#1}}
-% \newcommand{\Lopt}[1]{\textsf {#1}}
+% \changes{v0.2}{2025-06-03}{Initial release}
 %
 % \GetFileInfo{liturgy-cw.dtx}
 %
-% \title{The \Lpack{liturgy-cw} package\thanks{This document
-%   relates to \Lpack{liturgy-cw}~\fileversion, last revised \filedate.}}
+% \title{The \textsf{liturgy-cw} package\thanks{This document
+%   relates to \textsf{liturgy-cw}~\fileversion, last revised \filedate.}}
 % \author{Dimitri Theulings \\ \small\texttt{rector@becclesparish.org.uk} \\
 %	\small\texttt{https://github.com/dimitrit/liturgy-cw}}
 %
 % \maketitle
 %
 % \begin{abstract}
-%	The \Lpack{liturgy-cw} package greatly simplifies the typesetting of
+%	The \textsf{liturgy-cw} package greatly simplifies the typesetting of
 %	service sheets and booklets in the style of the Common Worship liturgical
-%	resources of the Church~of~England. The package provides commands for many
-%	liturgical devices, including rubrics, responsories and `required part'
-%	indicators.
+%	resources of the Church~of~England. The package provides commands for a
+%	number of liturgical elements, including rubrics, responsories and
+%   `required part' indicators.
 % \end{abstract}
 %
 % \section{Introduction}
 %
-% For the past quarter century Common Worship prayers and
-% services\cite{commonworship} has been the authorised liturygy for
-% worship in the Church of England. For both practical and (not least)
-% financial reasons many churches have produced their own service sheets
-% and booklets. These materials are often created using widely available
-% word processing and desktop publishing software packages with varying
-% success.
+% For the past quarter century Common Worship prayers and services has been
+% the authorised liturygy for worship in the Church of
+% England\cite{commonworship}. For practical and (not least) financial
+% reasons many churches have produced their own service sheets and booklets.
+% These materials are often created using widely available word processing
+% and desktop publishing software packages with varying success.
 %
-% The \Lpack{liturgy-cw} package arose from the need to create service
+% The \textsf{liturgy-cw} package arose from the need to create service
 % sheets and booklets quickly and easily, while ensuring these retain a
 % consistent visual style that is familiar to both worshipers and service
 % leaders. Given the familiarity that these users have with the visual style
-% of Common Worship publications made their design the obvious target for
-% this package.
+% of Common Worship made its design the obvious target for this package.
 %
 % Morgan's account of the making of Common Worship\cite{morgan} details
 % the design, together with rationales for various decisions that had to
-% be made in its implementation. While the \Lpack{liturgy-cw} package
+% be made in its implementation. While the \textsf{liturgy-cw} package
 % falls far short of an exact, or even complete, implementation of this
 % design, it should nevertheless prove useful in fulfilling its basic
 % objectives.
 %
 % \section{Limitations}
 %
-% Since the \Lpack{liturgy-cw} package uses \Lpack{fontspec} it requires
-% \hologo{LuaTeX} or other appropriate \TeX\ engine to function.
+% Because of its dependencies, including \textsf{fontspec}, the
+% \textsf{liturgy-cw} package requires Lua\TeX\ or other supported
+% \TeX\ engine to function.
 %
 % For best results you should have both \textit{Gill Sans MT} and
 % \textit{Noto Sans Liturgy} fonts installed on your system. The latter
 % is required for the symbol functions, |\Rx|, |\Pause| and |\Cross|.
 %
 % \section{Bug reports and feature requests}
+% \label{repo}
 % The source code, together with instructions for building and installing
 % the package, can be found on github;
 % \url{https://github.com/dimitrit/liturgy-cw}.
@@ -119,10 +116,10 @@
 % \section{Package documentation}
 %
 % \subsection{Basic usage}
-% The \Lpack{liturgy-cw} package provides macros and environments to create
-% service booklets and sheets in the style of Common Worship. The following
-% simple example typesets the contemporary version of the Lord's prayer as
-% a 'required part':
+% The \textsf{liturgy-cw} package provides functions and environments to
+% create service booklets and sheets in the style of Common Worship. The
+% following simple example typesets the contemporary version of the Lord's
+% prayer as a 'required part':
 %
 % \vspace*{1ex}
 %
@@ -157,14 +154,14 @@
 %
 % \subsubsection{Environments}
 % \DescribeEnv{required}
-% Required parts of Common Worship liturgy are indicated by a vertical red bar.
-% The |required| environment can be used to mark these parts. The position of
-% the vertical bar is defined by |\vbarhskip|.
+% Required parts of Common Worship liturgy are indicated by a vertical red
+% bar. The |required| environment can be used to mark these parts. The
+% position of the vertical bar is defined by |\vbarhskip|.
 %
 % \subsubsection{Functions}
 % \DescribeMacro{rubric}
 % The |\rubric|\marg{directive} function adds a direction for the conduct of
-% the service in red, italicized print. For example:
+% the service in red, italicised print. For example:
 %
 % \vspace*{1ex}
 %
@@ -181,8 +178,8 @@
 %
 % \DescribeMacro{minister}
 % Words spoken by clergy are included using the |\minister|\oarg{role}\marg{words}
-% function. Using the optional \textit{role} argument it is possible to specify a
-% ministry role, for example:
+% function. Using the optional \textit{role} argument it is possible to specify
+% a ministry role, for example:
 %
 % \vspace*{1ex}
 %
@@ -202,12 +199,13 @@
 %  \minister[President]{The harvest of the Spirit is love, joy and peace.\\
 %    The peace of the Lord be always with you}
 %  \all{and also with you.}
+%
 %  \minister[Deacon]{Let us offer one another a sign of peace.}
 % \end{resultbox}
 %
 % \DescribeMacro{all}
 % |\all|\marg{words} is used to highlight the words that are to be spoken by
-% the whole congregation. Words are printed in bold, preceded by the italicized
+% the whole congregation. Words are printed in bold, preceded by the italicised
 % word \textit{All} in red, printed in the margin. The \textit{All} directive
 % is omitted when using the starred version, |\all*|\marg{words}, as shown in
 % the example:
@@ -223,12 +221,15 @@
 %
 % \noindent\begin{resultbox}
 % \setmainfont[Ligatures=TeX]{Gill Sans MT}
-%
 %  \minister{Lord, hear us.}
 %  \all*{Lord, graciously hear us.}
 % \end{resultbox}
 %
 % \subsubsection{Symbols}
+% The symbol functions require the \textit{Noto Sans Liturgy} font to be
+% installed on your system. This font can be downloaded from the package
+% source repository (see `\textit{Bug reports and feature requests}' on page
+% \pageref{repo}).
 %
 % \DescribeMacro{Cross} The \Cross\ symbol can be included in the liturgy
 % using |\Cross|:
@@ -537,10 +538,11 @@
 	\NewDocumentCommand{\Cross}{}{{\nsl\textcolor{red}{\char"2720}}}
 }{
 	\PackageWarning{liturgy-cw}{%
-		The Noto Sans Liturgy typeface is not available on this system which means liturgical symbols are not defined.}
+		The Noto Sans Liturgy typeface is not available on this system which
+		means liturgical symbols are not defined.}
 }
 
-\newbiblerefstyle{cw}{ % Common Worship style
+\newbiblerefstyle{cw}{ % Common Worship reference style
 	\biblerefstyle{default}
 	\renewcommand{\BRchvsep}{.}
 	\renewcommand{\BRvrsep}{--}
