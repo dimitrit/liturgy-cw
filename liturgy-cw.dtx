@@ -413,25 +413,25 @@
 		\settowidth{\@cwpw}{\huge\P}
 		\titleformat{\chapter}[display]
 		{\huge\color{red}}{\thechapter}{0pt}{\hspace*{\dimexpr-\@cwpw+10mm}\P\hspace*{5mm}\itshape\begin{minipage}[t]{\linewidth-15mm}}[\end{minipage}]
-		\titlespacing{\chapter}{0pt}{10pt}{10pt}
+		\titlespacing{\chapter}{0pt}{1\baselineskip plus .333\baselineskip minus .125\baselineskip}{0pt plus .125\baselineskip minus .125\baselineskip}
 	
 		\let\@cwchapter\chapter
 		\renewcommand{\chapter}{\@ifstar{\@cwchapter*}{\@cwchapter*}}
 	\else
-		\PackageWarning{liturgy-cw}{\\chapter not defined; skipping.}
+		\PackageWarning{liturgy-cw}{chapter not defined; skipping.}
 	\fi
 	\newcommand{\@cwpadright}[1]{#1\hspace*{15mm}}
 	\titleformat{\section}
 	{\large\raggedleft\bfseries}{\thesection}{0pt}{\@cwpadright}
-	\titlespacing{\section}{0pt}{8pt}{0pt}
+	\titlespacing{\section}{0pt}{1\baselineskip plus .333\baselineskip minus .125\baselineskip}{0pt plus .125\baselineskip minus .125\baselineskip}
 
 	\titleformat{\subsection}
 	{\large\raggedleft\color{red}\itshape}{\thesubsection}{0pt}{\@cwpadright}
-	\titlespacing{\subsection}{0pt}{8pt}{0pt}
+	\titlespacing{\subsection}{0pt}{1\baselineskip plus .333\baselineskip minus .125\baselineskip}{0pt plus .125\baselineskip minus .125\baselineskip}
 
 	\titleformat{\subsubsection}
 	{\bfseries}{\thesubsubsection}{0pt}{}
-	\titlespacing{\subsubsection}{15mm}{8pt}{0pt}
+	\titlespacing{\subsubsection}{15mm}{1\baselineskip plus .333\baselineskip minus .125\baselineskip}{0pt plus .125\baselineskip minus .125\baselineskip}
 
 	\let\@cwsection\section
 	\renewcommand{\section}{\@ifstar{\@cwsection*}{\@cwsection*}}
