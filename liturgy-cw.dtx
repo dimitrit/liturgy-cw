@@ -4,7 +4,7 @@
 % ------------------------------------------------------------------
 %
 % This file may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either version 1.3c
+% conditions of the LaTeX Project Public License, either version 1.3
 % of this license or (at your option) any later version.
 % The latest version of this license is in:
 %
@@ -22,12 +22,12 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[2020-02-02]
 %<package>\ProvidesPackage{liturgy-cw}
 %<*package>
-[2025-06-03 v0.2 LaTeX package for typesetting Common Worship liturgies]
+[2025-08-13 v0.3 LaTeX package for typesetting Common Worship liturgies]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{liturgy-cw}[2025-06-03]
+\usepackage{liturgy-cw}[2025-08-13]
 \usepackage{xcolor}
 \usepackage{verse}
 \usepackage[most]{tcolorbox}
@@ -55,6 +55,7 @@
 %
 % \changes{v0.1}{2025-05-02}{Initial version}
 % \changes{v0.2}{2025-06-03}{Initial release}
+% \changes{v0.3}{2025-08-13}{Minor improvements}
 %
 % \GetFileInfo{liturgy-cw.dtx}
 %
@@ -75,12 +76,12 @@
 %
 % \section{Introduction}
 %
-% For the past quarter century Common Worship prayers and services has been
-% the authorised liturygy for worship in the Church of
-% England\cite{commonworship}. For practical and (not least) financial
-% reasons many churches have produced their own service sheets and booklets.
-% These materials are often created using widely available word processing
-% and desktop publishing software packages with varying success.
+% For the past quarter century \textit{Common Worship Prayers and Services}\cite{commonworship}
+% has been the authorised liturygy for worship in the Church of England.
+% For practical and (not least) financial reasons many churches have produced 
+% their own service sheets and booklets. These materials are often created 
+% using widely available word processing and desktop publishing software 
+% packages with varying success.
 %
 % The \textsf{liturgy-cw} package arose from the need to create service
 % sheets and booklets quickly and easily, while ensuring these retain a
@@ -118,8 +119,9 @@
 % \subsection{Basic usage}
 % The \textsf{liturgy-cw} package provides functions and environments to
 % create service booklets and sheets in the style of Common Worship. The
-% following simple example typesets the contemporary version of the Lord's
-% prayer as a 'required part':
+% simple example below typesets the contemporary version of the Lord's
+% prayer as a `required part'. A comprehensive example, `\textit{An
+% Order for Night Prayer (Compline)}' is included in the source repository.
 %
 % \vspace*{1ex}
 %
@@ -130,7 +132,6 @@
 %  \minister{
 %    Rejoicing in God’s new creation,\\
 %    as our Saviour taught us, so we pray}
-%
 %  \lpc
 % \end{required}
 % \end{commandbox}
@@ -145,7 +146,6 @@
 %
 %   \minister{Rejoicing in God’s new creation,\\
 %     as our Saviour taught us, so we pray}
-%
 %   \lpc
 % \end{required}
 % \end{resultbox}
@@ -155,7 +155,7 @@
 % \subsubsection{Environments}
 % \DescribeEnv{required}
 % Required parts of Common Worship liturgy are indicated by a vertical red
-% bar. The |required| environment can be used to mark these parts. The
+% bar. The |required| environment can be used to mark such sections. The
 % position of the vertical bar is defined by |\vbarhskip|.
 %
 % \subsubsection{Functions}
@@ -237,14 +237,20 @@
 % \vspace*{1ex}
 %
 % \noindent\begin{commandbox}
-% \Cross\ In the name of the Father, and of the Son, and of the Holy Spirit.
+%	\textit{N}, I baptize you\\
+% 	in the name of the Father, \Cross\\
+%	and of the Son,\\
+%	and of the Holy Spirit.
 % \end{commandbox}
 %
 % \vspace*{1ex}
 %
 % \noindent\begin{resultbox}
 % \setmainfont[Ligatures=TeX]{Gill Sans MT}
-% \Cross\ In the name of the Father, and of the Son, and of the Holy Spirit.
+%	\textit{N}, I baptize you\\
+% 	in the name of the Father, \Cross\\
+%	and of the Son,\\
+%	and of the Holy Spirit.
 % \end{resultbox}
 %
 % \DescribeMacro{Pause}
